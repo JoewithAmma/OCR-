@@ -67,8 +67,8 @@ for i in pdf_list:
         print(name)
         with open(i, "rb") as fd:
             document = fd.read()    
-        endpoint = r"https://azhetestserivce01.cognitiveservices.azure.com/"
-        apim_key = "99a5cac43deb4581a45874768ce6ea15"
+        endpoint = r"XXXX"
+        apim_key = "XXXX"
         post_url = "http://"+str(portnumbner)+"/formrecognizer/v2.1/layout/syncAnalyze"
         #中間的localhost要改成可以用外面文字檔讀取(如果port變就可以在外面更改)
         
@@ -81,7 +81,6 @@ for i in pdf_list:
         headers = {
             # Request headers
             'Content-Type': 'application/octet-stream',
-            #'Ocp-Apim-Subscription-Key': '99a5cac43deb4581a45874768ce6ea15',
             }
         resp = post(url = post_url, data = document, headers = headers, params = params)
         final_result=resp.json()
