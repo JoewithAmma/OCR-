@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  azure-cognitive-service-layout:
+    container_name: azure-cognitive-service-layout
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
+    environment:
+      - EULA=accept
+      - billing=https://azhetestserivce01.cognitiveservices.azure.com/
+      - apiKey=99a5cac43deb4581a45874768ce6ea15
+    ports:
+      - "5000"
+    networks:
+      - ocrvnet
+networks:
+  ocrvnet:
+    driver: bridge
